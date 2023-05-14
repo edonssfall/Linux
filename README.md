@@ -1,1 +1,1 @@
-# Razer-Blade-2020-Ubuntu
+# Razer Blade 15 (2020-Ubuntu)
