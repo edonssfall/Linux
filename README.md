@@ -25,7 +25,7 @@ sh programing.sh
 # Fixes
 ## Suspend Fix
 ```ssh
-sh fix-grub.sh
+sh grub/fix-grub.sh
 ```
 Commands
 ```ssh
