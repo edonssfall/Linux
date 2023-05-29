@@ -1,68 +1,44 @@
 # Razer Blade 15 (2020-Ubuntu)
 
 - [Progs Installation](#installation)
-  - [Bash File](#bash-file)
-  - [Google](#google)
-  - [VLC](#vlc)
-  - [Telegram](#telegram)
-  - [Synaptic Package Manager](#synaptic-package-manager)
-  - [Oh My ZSH](#ohmyzsh)
+  - [All progs Bash File](#all-progs-bash-file)
+  - [Programing Bash File](#programing-bash-file)
 - [Fixes](#fixes)
-	- [Suspend Fix](#suspend-fix)
+  - [Suspend Fix](#suspend-fix)
 - [Progs for Coding](#progs-for-coding)
-  - [PostgreSQL](#postgresql)
-  - [Docker](#docker)
-  - [Valentino Studio](#valentino-studio)
-- [Adds](#adds)
-  - [Multitouch](#multitouch)
+  - [Bash File](#bash-file)
+
 
 
 # Progs Installation
-## Bash File
-```markdown
+## All progs Bash File
+```ssh
 sh progs-installation.sh
 ```
-### Google
-1. Add the Google repository to your system's software sources.
-```markdown
-wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+
+# Progs for Coding
+## Bash File
+```ssh
+sh programing.sh
 ```
-2. Add the repository to the sources list
-```markdown
-sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
+
+# Fixes
+## Suspend Fix
+```ssh
+sh fix-grub.sh
 ```
-3. Update the package lists by running.
-```markdown
-sudo apt update
+Commands
+```ssh
+sudo nano /etc/default/grub
 ```
-4. Install Google Chrome.
-```markdown
-sudo apt install google-chrome-stable
+Change to:
+```ssh
+GRUB_CMDLINE_LINUX_DEFAULT="button.lid_init_state=open"
+GRUB_CMDLINE_LINUX="nouveau.modeset=0"
 ```
-### VLC
-1. Update the package lists.
-```markdown
-sudo apt update
+Apply Changes
+```ssh
+sudo update-grub
+sudo reboot
 ```
-2. Install VLC.
-```markdown
-sudo apt install vlc
-```
-### Telegram
-1. Update the package lists.
-```markdown
-sudo apt update
-```
-2. Install Telegram-Desktop
-```markdown
-sudo apt install telegram-desktop
-```
-### Synaptic Package Manager
-1.Update the package lists.
-```markdown
-sudo apt update
-```
-2. Install Synaptic Package Manager
-```markdown
-sudo apt install synaptic
-```
+
