@@ -2,6 +2,7 @@
 
 # Install pip, aws, sam-cli
 sudo apt-get update
+ sudo apt  install awscli - y
 sudo apt-get install python3-venv -y
 sudo apt-get install -y python3.10-dev python3-pip
 pip3 install awscli
@@ -43,4 +44,3 @@ sudo systemctl start postgresql@15-main.service
 
 # Добавление PostgreSQL в автозапуск
 sudo systemctl enable postgresql@15-main.service
-
