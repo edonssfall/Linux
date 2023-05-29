@@ -20,7 +20,7 @@ sh progs-installation.sh
 # Progs for Coding
 ## Bash File
 ```ssh
-sh programing.sh
+sh programming.sh
 ```
 
 # Fixes
