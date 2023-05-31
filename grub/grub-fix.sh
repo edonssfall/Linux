@@ -1,3 +1,5 @@
 #!/bin/bash
 
-sudo cp -vfr grub /etc/default/grub
+sudo rsync -av grub/grub /etc/default/grub
+
+sudo update-grub

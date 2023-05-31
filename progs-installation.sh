@@ -28,12 +28,3 @@ sudo apt-get update
 sudo apt-get upgrade -y
 sudo apt install powertop -y
 sudo powertop –calibrate
-
-sudo prime-select intel
-
-# Multitouch
-sudo apt-get update
-sudo apt install curl -y
-
-sudo apt-get upgrade -y
-
