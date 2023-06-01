@@ -1,13 +1,14 @@
 # Razer Blade 15 (2020-Base Model) 
 # Ubuntu_22.04
 
-- [Progs Installation](#installation)
+- [Progs Installation](#progs-installation)
   - [All progs Bash File](#all-progs-bash-file)
-  - [Programing Bash File](#programing-bash-file)
-- [Fixes](#fixes)
-  - [Suspend Fix](#suspend-fix)
 - [Progs for Coding](#progs-for-coding)
   - [Bash File](#bash-file)
+  - [Drivers for DataScience](#drivers-for-datascience)
+    - [Nvidia Drivers](#install-cuda-and-nvidia-drivers)
+- [Fixes](#fixes)
+  - [Suspend Fix](#suspend-fix)
 
 
 
@@ -22,6 +23,30 @@ sh progs-installation.sh
 ```ssh
 sh programming.sh
 ```
+
+## Drivers for DataScience
+### Install CUDA and Nvidia Drivers
+CUDA 12.1 for Ubuntu 22.04
+```ssh
+sh DataScience/CUDA_12.1_Ubuntu_22.04.sh
+```
+CUDA 12.1 for Ubuntu 20.04
+```ssh
+sh DataScience/CUDA_12.1_Ubuntu_22.04.sh
+```
+CUDA 11.8 for Ubuntu 22.04
+```ssh
+sh DataScience/CUDA_12.1_Ubuntu_22.04.sh
+```
+CUDA 11.8 for Ubuntu 20.04
+```ssh
+sh DataScience/CUDA_12.1_Ubuntu_22.04.sh
+```
+TensorRT latest
+```ssh
+sh DataScience/TensorRT:latest.sh
+```
+
 
 # Fixes
 ## Suspend Fix
