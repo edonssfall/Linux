@@ -21,7 +21,7 @@ rm google-chrome-stable_current_amd64.deb
 
 # Install VLC
 sudo apt update
-sudo apt install vlc
+sudo apt install vlc -y
 
 # Battery Saver
 sudo apt-get update
