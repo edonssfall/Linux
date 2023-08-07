@@ -59,7 +59,7 @@ sudo nano /etc/default/grub
 ```
 Change to:
 ```ssh
-GRUB_CMDLINE_LINUX_DEFAULT="button.lid_init_state=open"
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash button.lid_init_state=open"
 GRUB_CMDLINE_LINUX="nouveau.modeset=0"
 ```
 Apply Changes
