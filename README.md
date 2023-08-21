@@ -23,6 +23,10 @@ sh progs-installation.sh
 ```ssh
 sh programming.sh
 ```
+## Switch on intel
+```ssh
+sudo prime-select intel
+```
 
 ## Drivers for DataScience
 ### Install CUDA and Nvidia Drivers
