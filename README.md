@@ -23,9 +23,14 @@ sh progs-installation.sh
 ```ssh
 sh programming.sh
 ```
-## Switch on intel
+## Switch grapchic processor
+- to intel
 ```ssh
 sudo prime-select intel
+```
+- to nvidia
+```ssh
+sudo prime-select nvidia
 ```
 
 ## Drivers for DataScience
