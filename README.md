@@ -1,5 +1,4 @@
-# Razer Blade 15 (2020-Base Model) 
-# Ubuntu_22.04
+# Ubuntu_22.04 Razer Blade 15 (2020-Base Model) 
 
 - [Progs Installation](#progs-installation)
   - [All progs Bash File](#all-progs-bash-file)
