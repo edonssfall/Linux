@@ -1,10 +1,3 @@
-# My Settings for Linux
+# Ubuntu 22.04 Asus G14 2023
 
-## Branches
-- [razer_2020]()
-  - Bash scripts for notebook 
-  - Some DataScience Dockerfiles
-  - grub config
-- [asus_2023]()
-  - Dockerfile for job
-  - anime.ron-backup
+- anime.ron.backup(Donut)
