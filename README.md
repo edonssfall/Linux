@@ -1,10 +1,12 @@
 # My Settings for Linux
 
 ## Branches
-- [razer_2020](https://github.com/edonssfall/Linux/tree/razer_2020)
+- [2023_asus-g14](https://github.com/edonssfall/Linux/tree/2023_asus-g14)
+  - Dockerfile for job
+  - anime.ron-backup
+
+- [2020_razer-15](https://github.com/edonssfall/Linux/tree/2020_razer-15)
   - Bash scripts for notebook 
   - Some DataScience Dockerfiles
   - grub config
-- [asus_2023](https://github.com/edonssfall/Linux/tree/asus_2023)
-  - Dockerfile for job
-  - anime.ron-backup
+  - 
