@@ -13,10 +13,20 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 # Change default shell to Zsh
 echo "exec zsh" >> ~/.bashrc
 
+curl -sS https://starship.rs/install.sh | sh
+echo 'eval "$(starship init zsh)"' >> ~/.zshrc
+
 # Install Google Chrome
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg -i google-chrome-stable_current_amd64.deb
 rm google-chrome-stable_current_amd64.deb
+
+sudo add-apt-repository ppa:alessandro-strada/ppa  
+sudo apt update && sudo apt install google-drive-ocamlfuse
+google-drive-ocamlfuse
+mkdir -v ~/myGoogleDrive
+google-drive-ocamlfuse ~/myGoogleDrive
+
 
 # Install dependencies for asusctl
 cd Templates
