@@ -37,6 +37,8 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 source "$HOME/.cargo/env"
 make
 sudo make install
+systemctl start asusd
+
 
 # Install Howdy
 sudo add-apt-repository ppa:boltgolt/howdy
