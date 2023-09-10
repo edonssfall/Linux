@@ -86,7 +86,7 @@ cat <<EOF | sudo tee /etc/asusd/anime.ron
 EOF
 
 # Download the donut.gif file and move it
-wget http://donut.gif -O /usr/share/asusd/anime/custom/terminal-donut.gif
+sudo wget https://hackaday.com/wp-content/uploads/2020/07/spinning-donut-thumb.gif\?w\=600\&h\=600 -O /usr/share/asusd/anime/custom/terminal-donut.gif
 
 # Install Docker
 sudo apt-get install ca-certificates curl gnupg -y
