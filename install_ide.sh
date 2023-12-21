@@ -28,8 +28,11 @@ extract_and_setup() {
         echo "Removing existing directory: $extract_dir"
         rm -r "$extract_dir"
     fi
+    
+    # Convert the string to lowercase
+    desktop_file_name=$(echo "$archive_name" | tr '[:upper:]' '[:lower:]')
 
-    desktop_entry_file="/usr/share/applications/$name.desktop"
+    desktop_entry_file="/usr/share/applications/$desktop_file_name.desktop"
     if [ -f "$desktop_entry_file" ]; then
         echo "Removing existing desktop entry: $desktop_entry_file"
         sudo rm "$desktop_entry_file"
@@ -41,7 +44,7 @@ extract_and_setup() {
     tar -xzf "$archive" -C "$extract_dir/" --strip-components=1
 
     # Create a desktop shortcut
-    echo -e "[Desktop Entry]\nVersion=$version\nType=Application\n\nName=$name\nComment=IDE $name\n\nIcon=$extract_dir/bin/$name.png\nExec=$extract_dir/bin/$name.sh" | sudo tee "$desktop_entry_file" > /dev/null
+    echo -e "[Desktop Entry]\nVersion=$version\nType=Application\n\nName=$name\nComment=IDE $name\n\nIcon=$extract_dir/bin/$desktop_file_name.png\nExec=$extract_dir/bin/$desktop_file_name.sh" | sudo tee "$desktop_entry_file" > /dev/null
 
     echo "$archive_name extracted and shortcut created."
 }
