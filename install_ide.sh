@@ -1,8 +1,11 @@
 #!/bin/bash
 
+# Determine the user's home directory
+user_home=$(eval echo ~$SUDO_USER)
+
 # Set paths
-downloads_dir=~/Downloads
-ides_dir=~/Templates/IDE
+downloads_dir="$user_home/Downloads"
+ides_dir="$user_home/Templates/IDE"
 
 # Ensure the Templates directory exists
 mkdir -p "$ides_dir"
@@ -11,15 +14,35 @@ mkdir -p "$ides_dir"
 extract_and_setup() {
     archive=$1
     archive_name=$(basename "$archive")
-    extract_dir="$ides_dir/${archive_name%.*.*}"
     
+    # Extract the first word before hyphen
+    name=$(echo "$archive_name" | awk -F'-' '{print $1}')
+    
+    # Extract the version (assuming it's the second part)
+    version=$(echo "$archive_name" | grep -oP '\d+\.\d+\.\d+')
+    
+    extract_dir="$ides_dir/$name"
+
+    # Remove existing directory and desktop entry
+    if [ -d "$extract_dir" ]; then
+        echo "Removing existing directory: $extract_dir"
+        rm -r "$extract_dir"
+    fi
+
+    desktop_entry_file="/usr/share/applications/$name.desktop"
+    if [ -f "$desktop_entry_file" ]; then
+        echo "Removing existing desktop entry: $desktop_entry_file"
+        sudo rm "$desktop_entry_file"
+    fi
+
     # Extract the archive
     echo "Extracting $archive..."
-    tar -xzf "$archive" -C "$ides_dir/"
-    
+    mkdir "$extract_dir"
+    tar -xzf "$archive" -C "$extract_dir/" --strip-components=1
+
     # Create a desktop shortcut
-    echo -e "[Desktop Entry]\nName=${archive_name%.*.*}\nComment=Extracted Template\nExec=$extract_dir\nType=Application" > /usr/share/applications/"${archive_name%.*.*}.desktop"
-    
+    echo -e "[Desktop Entry]\nVersion=$version\nType=Application\n\nName=$name\nComment=IDE $name\n\nIcon=$extract_dir/bin/$name.png\nExec=$extract_dir/bin/$name.sh" | sudo tee "$desktop_entry_file" > /dev/null
+
     echo "$archive_name extracted and shortcut created."
 }
 
@@ -41,7 +64,7 @@ install_deb() {
 }
 
 # Process files in the Downloads directory
-for file in "$downloads_dir"/*; do
+find "$downloads_dir" \( -name "*.tar.gz" -o -name "*.rpm" -o -name "*.deb" \) -print0 | while IFS= read -r -d '' file; do
     if [ -f "$file" ]; then
         case "$file" in
             *.tar.gz) extract_and_setup "$file" ;;
@@ -49,11 +72,6 @@ for file in "$downloads_dir"/*; do
             *.deb) install_deb "$file" ;;
             *) echo "Unsupported file: $file" ;;
         esac
-        rm $file
+        rm "$file"
     fi
 done
-
-# Display a list of installed archives or software
-echo "Installed Archives or Software:"
-ls -1 "$ides_dir" /usr/share/applications/*.desktop
-
